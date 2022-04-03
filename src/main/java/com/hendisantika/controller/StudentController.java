@@ -33,4 +33,12 @@ public class StudentController {
         model.addAttribute("student", student);
         return "home";
     }
+
+    @GetMapping("/create")
+    public String createStudentPage(Model model) {
+        Student student = new Student();
+        model.addAttribute("student", student);
+        model.addAttribute("isUpdate", false);
+        return "create-update";
+    }
 }
