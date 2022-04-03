@@ -41,6 +41,12 @@ public class StudentService {
         student1.setPhone(student.getPhone());
         student1.setJurusan(student.getJurusan());
         return studentRepository.save(student1);
-
     }
+
+    public String deleteStudent(int id) {
+        studentRepository.deleteById(id);
+        return "Student deleted successfully";
+    }
+
+
 }
