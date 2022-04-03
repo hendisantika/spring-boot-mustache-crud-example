@@ -32,8 +32,8 @@ public class StudentController {
 
     @GetMapping("/")
     public String getAllStudents(Model model) {
-        List<Student> student = studentService.getAllStudents();
-        model.addAttribute("student", student);
+        List<Student> students = studentService.getAllStudents();
+        model.addAttribute("students", students);
         return "home";
     }
 
