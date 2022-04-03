@@ -6,6 +6,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.List;
 
@@ -41,4 +42,13 @@ public class StudentController {
         model.addAttribute("isUpdate", false);
         return "create-update";
     }
+
+    @GetMapping("/update/{id}")
+    public String updateStudentPage(Model model, @PathVariable("id") Integer id) {
+        Student student = studentService.getStudent(id);
+        model.addAttribute("student", student);
+        model.addAttribute("isUpdate", true);
+        return "create-update";
+    }
+
 }
