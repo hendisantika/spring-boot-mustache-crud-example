@@ -48,5 +48,7 @@ public class StudentService {
         return "Student deleted successfully";
     }
 
-
+    public Student getStudent(int id) {
+        return studentRepository.getById(id);
+    }
 }
