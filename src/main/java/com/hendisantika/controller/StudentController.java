@@ -59,4 +59,9 @@ public class StudentController {
         return "redirect:/";
     }
 
+    @PostMapping("/create")
+    public String createStudent(@ModelAttribute("student") Student student) {
+        studentService.createStudent(student);
+        return "redirect:/";
+    }
 }
