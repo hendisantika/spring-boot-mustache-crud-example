@@ -1,8 +1,13 @@
 package com.hendisantika.controller;
 
+import com.hendisantika.model.Student;
 import com.hendisantika.service.StudentService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+
+import java.util.List;
 
 /**
  * Created by IntelliJ IDEA.
@@ -20,5 +25,12 @@ public class StudentController {
 
     public StudentController(StudentService studentService) {
         this.studentService = studentService;
+    }
+
+    @GetMapping("/")
+    public String getAllStudents(Model model) {
+        List<Student> student = studentService.getAllStudents();
+        model.addAttribute("student", student);
+        return "home";
     }
 }
