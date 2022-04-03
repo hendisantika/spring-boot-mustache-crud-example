@@ -6,7 +6,9 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.List;
 
@@ -49,6 +51,12 @@ public class StudentController {
         model.addAttribute("student", student);
         model.addAttribute("isUpdate", true);
         return "create-update";
+    }
+
+    @PostMapping("/update/{id}")
+    public String createStudent(@ModelAttribute("student") Student student, @PathVariable("id") Integer id) {
+        studentService.updateStudent(student, id);
+        return "redirect:/";
     }
 
 }
