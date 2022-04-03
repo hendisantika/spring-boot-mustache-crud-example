@@ -1,0 +1,66 @@
+<!doctype html>
+<head>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+          rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script
+            src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+    <script
+            src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="container">
+    <h1>{{^isUpdate}}Create{{/isUpdate}}{{#isUpdate}}Update{{/isUpdate}}
+        Student</h1>
+    <div>
+        <form
+                action="{{#isUpdate}}/update/{{student.id}}{{/isUpdate}}{{^isUpdate}}/create{{/isUpdate}}"
+                method="post" name="student">
+            <table class="table">
+                <tbody>
+                <thead>
+                <tr>
+                    <th>Field</th>
+                    <th>Value</th>
+                </tr>
+                </thead>
+                <tbody>
+                {{#isUpdate}}
+                <tr>
+                    <td>ID</td>
+                    <td>
+                        <div name="id">{{student.id}}</div>
+                    </td>
+                </tr>
+                {{/isUpdate}}
+                <tr>
+                    <th>Name</th>
+                    <td><input name="name" type="text"
+                               value="{{#student.name}}{{student.name}}{{/student.name}}"/></td>
+                </tr>
+                {{/isUpdate}}
+                <tr>
+                    <th>Email</th>
+                    <td><input name="email" type="text"
+                               value="{{#student.email}}{{student.email}}{{/student.email}}"/></td>
+                </tr>
+                {{/isUpdate}}
+                <tr>
+                    <th>Phone</th>
+                    <td><input name="phone" type="text"
+                               value="{{#student.phone}}{{student.phone}}{{/student.phone}}"/></td>
+                </tr>
+                {{/isUpdate}}
+                <tr>
+                    <th>Jurusan</th>
+                    <td><input name="jurusan" type="text"
+                               value="{{#student.jurusan}}{{student.jurusan}}{{/student.jurusan}}"/></td>
+                </tr>
+                </tbody>
+            </table>
+            <button class="btn btn-primary" type="submit">Save</button>
+        </form>
+    </div>
+</div>
+</body>
+</html>
